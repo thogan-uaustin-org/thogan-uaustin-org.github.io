@@ -2,10 +2,10 @@
 pragma solidity ^0.8.26;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract MyEscrow {
+contract MyEscrowInt {
 
     // Replace this address with the token you created (or whatever token you want to use).
-    address constant tokenToEscrow = 0x20A123112Fa53A1aeCe40D3b6af4C4A9d4e2a325 ;
+    address constant tokenToEscrow = 0x0105c6E84344c90218D79Afe8562E65d8BE2F852 ;
     // This tells the contract that the address you provided is a token that can be transferred.
     IERC20 escrowToken = IERC20(tokenToEscrow); 
     address public buyerAddress = address(0);
@@ -30,12 +30,12 @@ contract MyEscrow {
         escrowToken.transferFrom(msg.sender, address(this), amountToEscrow);
     }
 
-    function closeEscrow(bool paySeller) public {
+    function closeEscrow(uint256 paySeller) public {
         
         require(msg.sender==mediatorAddress, "Only the mediator can close this account");
 
         escrowToken.approve(address(this), amountToEscrow);
-        if (paySeller==true) {
+        if (paySeller==1) {
             // Pay the seller (transfer funds from this contract to seller wallet).
             escrowToken.transferFrom(address(this), sellerAddress, amountToEscrow);
         } else {
