@@ -2,7 +2,7 @@
 pragma solidity ^0.8.26;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract MyEscrowInt {
+contract MyEscrow {
 
     // Replace this address with the token you created (or whatever token you want to use).
     address constant tokenToEscrow = 0x0105c6E84344c90218D79Afe8562E65d8BE2F852 ;
