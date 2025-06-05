@@ -24,7 +24,6 @@
 
     <h1>My Token Minting Page</h1>
     <label for="tokenAmount">How many tokens to mint?</label><br>
-    <input type="number" id="tokenAmount" name="tokenAmount" min="1">
     <button onclick="mintTokens()">Mint</button>
 
     <!----->
@@ -94,7 +93,7 @@
 
         async function mintTokens() {
 
-            var mintAmount = document.getElementById('tokenAmount').value;
+            var mintAmount = 3;  // document.getElementById('tokenAmount').value;
             if (mintAmount <= 0) {
                 alert('Please enter a valid number greater than zero.');
                 return;
